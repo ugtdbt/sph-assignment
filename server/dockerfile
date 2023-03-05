@@ -1,0 +1,20 @@
+FROM node:carbon-alpine
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+COPY package-lock.json ./
+
+ENV DB_NAME sphdb
+ENV DB_USER sphuser
+ENV DB_PASS 123456Aa@
+ENV DB_PORT 3307
+ENV DB_HOST 127.0.0.1
+
+RUN npm install
+
+COPY ./dist .
+
+EXPOSE 4700
+
+CMD [ "npm", "start" ]

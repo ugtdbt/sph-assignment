@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  sphdb:
+    image: mysql:8.0
+    container_name: sphdb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_USER: sphuser
+      MYSQL_DATABASE: sphdb
+      MYSQL_PASSWORD: 123456Aa@
+    ports:
+      - "3307:3306"
+  sphtestdb:
+    image: mysql:8.0
+    container_name: sphtestdb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_USER: sphuser
+      MYSQL_DATABASE: sphdb
+      MYSQL_PASSWORD: 123456Aa@
+    ports:
+      - "3308:3306"
